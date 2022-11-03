@@ -1,0 +1,7 @@
+.dashboard-item{
+    padding: 50px;
+}
+.dashboard-item img{
+    max-width: 200px;
+    width: 100%;
+}

@@ -1,0 +1,22 @@
+.main-header{
+    max-width: 100%;
+    width: 100%;
+    background-color: black;
+
+}
+.main-header .container{
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.main-header .title{
+    color: white;
+    padding: 40px;
+    font-size: 50px;
+}
+
+.main-header .logo{
+    width: 100% ;
+    max-width: 200px;
+}
