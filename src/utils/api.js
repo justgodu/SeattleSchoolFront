@@ -27,7 +27,6 @@ export default class SeattleApi{
             headers["Content-Type"] = "application/json";
         }
 
-        console.log(fetchUrl, headers);
         let response = await fetch(fetchUrl, {
             headers: headers
         });
@@ -56,14 +55,43 @@ export default class SeattleApi{
             headers["Content-Type"] = "application/json";
         }
 
-        console.log(fetchUrl, headers);
         let response = await fetch(fetchUrl, {
             headers: headers,
             method: "POST",
             body: JSON.stringify(data)
         });
 
-        console.log(response);
+
+        if(response.status === 401){
+            this.unAuthorized();
+        }
+
+        return response.json();
+
+    }
+
+    async put(endpoint,  data = null, queryData = null, headers = {}){
+
+        let fetchUrl = this.url + endpoint;
+
+        if(queryData){
+            fetchUrl += this.objectToQuery(queryData);
+        }
+
+        if(!headers["Authorization"]){
+            headers["Authorization"] = this.getAuthHeader();
+        }
+
+        if(!headers["Content-Type"]){
+            headers["Content-Type"] = "application/json";
+        }
+
+        let response = await fetch(fetchUrl, {
+            headers: headers,
+            method: "PUT",
+            body: JSON.stringify(data)
+        });
+
 
         if(response.status === 401){
             this.unAuthorized();
@@ -87,7 +115,7 @@ export default class SeattleApi{
             if (obj.hasOwnProperty(p)) {
                 str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
             }
-        return str.join("&");
+        return "?" + str.join("&");
     }
 
     unAuthorized(){

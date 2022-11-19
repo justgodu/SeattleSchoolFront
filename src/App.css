@@ -2,15 +2,20 @@
     text-align: center;
     border: 1px solid black;
     font-weight: bold;
+    height: 130px;
 }
 
 .cell a{
-    padding: 20px 0;
-    display: block;
+    /*padding-top: 20px;*/
+    display: flex;
+    height: 130px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    color: black;
 }
-
 .cell.empty{
-    background-color: gray;
+    background-color: #E6E5E5;
 }
 
 .cell.exceed{
@@ -29,7 +34,7 @@
 }
 
 .container{
-    max-width: 1440px;
+    max-width: 1180px;
     width: 100%;
     margin: auto;
 }
@@ -40,6 +45,7 @@
     position: fixed;
     top: 10%;
     right: 10%;
+    z-index: 200;
 
     background-color: #CFD5EA;
     border-radius: 10px;
@@ -52,3 +58,66 @@
     color: #FF0000;
 }
 
+
+.column-header{
+    background-color: #4472C4;
+    color: white;
+    padding: 5px 20px;
+    min-width: 100px;
+}
+
+.row-header-0{
+    background-color: #CFD5EA;
+    padding: 20px;
+}
+.row-header-1{
+    background-color: #E9EBF5;
+    padding: 20px;
+}
+.table-header{
+    background-color: #7F7F7F;
+    color: white;
+    padding: 20px;
+}
+.section-container{
+    padding: 20px;
+}
+
+.center{
+    margin: auto;
+    text-align: center;
+}
+
+.filters-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+.sort-item-container{
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.sort-item{
+    padding: 5px;
+    cursor: pointer;
+    max-width: 152px;
+    width: 100%;
+    text-align: center;
+}
+.sort-item.selected{
+    padding: 3px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+
+.users .cell a{
+    justify-content: center;
+}
+
+.grid-container{
+    overflow-x: auto;
+}

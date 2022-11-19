@@ -1,7 +1,14 @@
 import Header from "../../components/Header/Header";
 import EditForm from "../../components/EditForm/EditForm";
 import {useEffect, useState} from "react";
-import {getCSIPEditFields, getGoal, getSchool, updateCSIP} from "../../utils/functions";
+import {
+    getCSIPEditFields,
+    getGoal,
+    getSchool,
+    getSchoolParam,
+    updateCSIP,
+    updateSchoolParam
+} from "../../utils/functions";
 
 function CSIPEdit(props){
 
@@ -21,7 +28,7 @@ function CSIPEdit(props){
         }
 
         const getAndSetFormData = async () =>{
-            let response = await getCSIPEditFields(props.match.params.schoolId, props.match.params.goalId);
+            let response = await getSchoolParam(props.match.params.schoolId, props.match.params.goalId, '', '');
 
             console.log(response, "getAndSetFormData")
             if(Array.isArray(response)){
@@ -46,7 +53,7 @@ function CSIPEdit(props){
 
 
     const onFormSubmit = async (formData)=>{
-        let response = await updateCSIP(props.match.params.schoolId, props.match.params.goalId, formData);
+        let response = await updateSchoolParam(props.match.params.schoolId, props.match.params.goalId, formData);
 
         if(response.status){
             setUpdateStatus({
@@ -71,7 +78,7 @@ function CSIPEdit(props){
 
         <>
             <Header title={"Goals - " + school?.name}/>
-            <div className={"edit-container container"}>
+            <main className={"edit-container container"}>
                 <div className={"input-container"}>
                     <h2 className={"label"}>Goal</h2>
                     <h3 className={"input"}>{goal?.name}</h3>
@@ -79,7 +86,7 @@ function CSIPEdit(props){
 
                 <EditForm formData={formData} onSubmit={onFormSubmit}/>
                 {updateStatus && (<h4 className={updateStatus.class}>{updateStatus.text}</h4>)}
-            </div>
+            </main>
         </>
 
     )

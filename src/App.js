@@ -5,6 +5,12 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import CSIP from "./pages/CSIP/CSIP";
 import Login from "./pages/Login";
 import CSIPEdit from "./pages/CSIP-edit/CSIP-edit";
+import ISSLC from "./pages/ISSLC/ISSLC";
+import ISSLCSchool from "./pages/ISSLCSchool/ISSLCSchool";
+import ISSLCEdit from "./pages/ISSLC-edit/ISSLC-edit";
+import Users from "./pages/Users/Users";
+import UsersEdit from "./pages/Users-edit/Users-edit";
+import UserNew from "./pages/User-new/User-new";
 
 function App() {
   return (
@@ -22,6 +28,27 @@ function App() {
             <Route path={"/csip"}>
                 <CSIP/>
             </Route>
+
+            <Route path={"/isslc-edit/:schoolId/:columnId/:rowId"} component={ISSLCEdit}>
+            </Route>
+            <Route path={"/isslc/:schoolId"} component={ISSLCSchool}></Route>
+            <Route path={"/isslc"}>
+                <ISSLC/>
+            </Route>
+
+
+            <Route path={"/users/:userId"} component={UsersEdit}></Route>
+            <Route path={"/users-new"} component={UserNew}></Route>
+
+            <Route path={"/users"}>
+                <Users/>
+            </Route>
+
+
+
+
+
+
             <Route path={"/"}>
                 <Dashboard/>
             </Route>

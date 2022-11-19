@@ -8,9 +8,10 @@ function Header(props){
                 <Link className={"logo"} to={"/"}>
                     <img src={"/seattle-logo.png"} />
                 </Link>
-            <h1 className={"title"}>{props.title}</h1>
+            <h1 className={"title"}>{props.title || ""}</h1>
             <div className={"logo"}></div>
             </div>
+            <div className={"banner"} style={{backgroundImage: 'url("/the-great-tamanimas-banner.png")'}}></div>
         </header>
     )
 }

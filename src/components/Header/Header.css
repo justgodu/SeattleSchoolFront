@@ -1,7 +1,7 @@
 .main-header{
     max-width: 100%;
     width: 100%;
-    background-color: black;
+    background-color: white;
 
 }
 .main-header .container{
@@ -9,9 +9,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0 3rem;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 1024px) {
+    .main-header .container{
+        justify-content: center;
+    }
 }
 .main-header .title{
-    color: white;
+    color: #006AA3;
     padding: 40px;
     font-size: 50px;
 }
@@ -19,4 +26,24 @@
 .main-header .logo{
     width: 100% ;
     max-width: 200px;
+}
+
+.banner{
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    position: relative;
+}
+
+.banner:after{
+
+    content: "";
+    background: #006AA3;
+    opacity: .88;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
 }

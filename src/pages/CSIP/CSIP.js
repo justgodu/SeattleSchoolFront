@@ -76,7 +76,7 @@ function CSIP(){
             }
             </div>
             <div className={"grid-container"}>
-                <table className={"gird-table"}>
+                <table className={"grid-table"}>
                     <tbody>
                     <tr>
                         <td className={"table-header"}>Schools</td>

@@ -13,24 +13,36 @@ function Dashboard(){
             "title": "CSIP Overview",
             "img": "/CSIP.png",
             "path": "/csip"
+        },
+        {
+            "title": "ISSLC Standards Dashboard",
+            "img": "/CSIP.png",
+            "path": "/isslc"
+        },
+        {
+            "title": "Users",
+            "img": "/CSIP.png",
+            "path": "/users"
         }
     ]
     return (
         <>
             <Header title={"Dashboard"} />
-            {
-                dashboardItems.map((item,index)=>(
-                    <div key={index} className={"dashboard-item container"}>
-                        <Link to={item.path}>
-                        <img src={item.img}/>
+            <main className={"dashboard-container container"}>
+                {
+                    dashboardItems.map((item,index)=>(
+                        <div key={index} className={"dashboard-item"}>
+                            <Link to={item.path}>
+                            <img src={item.img}/>
 
-                            <h3>
-                                {item.title}
-                            </h3>
-                        </Link>
-                    </div>
-                ))
-            }
+                                <h3>
+                                    {item.title}
+                                </h3>
+                            </Link>
+                        </div>
+                    ))
+                }
+            </main>
 
         </>
     )
