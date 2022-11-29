@@ -72,11 +72,13 @@ function UserNew(){
     ]
     return (
         <>
-            <Header title={"ISSLC - " + user?.username}/>
+            <Header title={"User Management - " + (user?.username || "New")}/>
 
             <main className={"edit-container container"}>
                 <div className={"edit-form-info"}>
+                    <h3><Link to={"/"}>Dashboard</Link></h3>
                     <h3><Link to={"/users"}>Users</Link></h3>
+                    <h3>User - {user?.username || "New"}</h3>
                     {updateStatus?.class && (<h4 className={updateStatus.class}>{updateStatus.text}</h4>)}
                 </div>
                 <form className={"edit-form"} onSubmit={(e) => {
@@ -91,6 +93,13 @@ function UserNew(){
                         <div className={"flex-column"}>
                             <h4 className={"label"}>Email:</h4>
                             <input type={"text"} value={user?.email || ""} onChange={(e) => onChangeValue(e.target.value, "email")} required={true}/>
+                        </div>
+                    </div>
+
+                    <div className={"flex-2 form-section"}>
+                        <div className={"flex-column"}>
+                            <h4 className={"label"}>Password:</h4>
+                            <input type={"password"} value={user?.password || ""} onChange={(e) => onChangeValue(e.target.value, "password")} required={true}/>
                         </div>
                     </div>
 

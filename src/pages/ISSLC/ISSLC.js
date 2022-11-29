@@ -23,6 +23,12 @@ function ISSLC(props){
         <>
             <Header title={"ISSLC Standards Dashboard"} />
             <main className={"container"}>
+
+                <div className={"edit-form-info container"}>
+                    <h3><Link to={"/"}>Dashboard</Link></h3>
+                    <h3>ISSLC</h3>
+                </div>
+
                 <div className={"section-container center"}>
                     <h3>
                         Select School:

@@ -46,8 +46,13 @@ function Users(props){
     ]
     return(
         <>
-            <Header title={"Users"}/>
+            <Header title={"User Management"}/>
             <main className={"container"}>
+
+                <div className={"edit-form-info"}>
+                    <h3><Link to={"/"}>Dashboard</Link></h3>
+                    <h3>Users</h3>
+                </div>
 
                 <div className={"grid-container users"}>
 

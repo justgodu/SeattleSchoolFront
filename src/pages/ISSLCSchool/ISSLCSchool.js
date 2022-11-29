@@ -1,6 +1,6 @@
 import Header from "../../components/Header/Header";
 import {useEffect,useState} from "react";
-import {getGoals, getSchool, getSchoolWithColumns} from "../../utils/functions";
+import {getGoals, getSchoolWithColumns} from "../../utils/functions";
 import {Link} from "react-router-dom";
 
 function ISSLCSchool(props){
@@ -45,12 +45,14 @@ function ISSLCSchool(props){
         }
 
         const getAndSetRows = async ()=>{
-            let theRows = await getGoals('row', 'ISSLC');
+            let theRows = await getGoals('row', 'ISSLC',null, props.match.params.schoolId);
+            console.log(theRows, "theRows")
             setRows(theRows);
         }
 
         const getAndSetColumns = async ()=>{
-            let theColumns = await getGoals('column', 'ISSLC');
+            let theColumns = await getGoals('column', 'ISSLC', null, props.match.params.schoolId);
+            console.log(theColumns, "theCol")
             setColumns(theColumns);
         }
 
@@ -77,9 +79,14 @@ function ISSLCSchool(props){
     return(
         <>
             <Header title={"ISSLC - " + school?.name}/>
-            <main className={"container"}>
+            <main className={""}>
+                <div className={"edit-form-info container"}>
+                    <h3><Link to={"/"}>Dashboard</Link></h3>
+                    <h3><Link to={"/ISSLC"}>ISSLC</Link></h3>
+                    <h3>{school?.name}</h3>
+                </div>
 
-                <div className={"filters-container"}>
+                <div className={"filters-container container"}>
                     <h4>Sort by</h4>
                     {
                         statusButtons.map((item, index)=>(
@@ -93,7 +100,7 @@ function ISSLCSchool(props){
                         ))
                     }
                 </div>
-                <div className={"grid-container container"}>
+                <div className={"grid-container"}>
 
                     <table className={"grid-table center"} cellSpacing={0}>
                         <tbody>
@@ -114,7 +121,7 @@ function ISSLCSchool(props){
                                             {
                                                 columns.map((col, col_ind) => {
                                                     let Cell;
-                                                    school.parameters.map((param) => {
+                                                    school.parameters.forEach((param) => {
 
                                                         if (param.column_id && param.row_id
                                                             && param.column_id === col._id && param.row_id === row._id) {
@@ -132,7 +139,7 @@ function ISSLCSchool(props){
                                                     });
 
                                                     if(!Cell){
-                                                        Cell = <td key={col_ind} className={"cell" + " row-header-" + index%2}>
+                                                        Cell = <td key={col_ind} className={"cell row-header-" + index%2}>
                                                             <Link to={`/isslc-edit/${school._id}/${col._id}/${row._id}`}>
                                                                 {"-"}
                                                             </Link>

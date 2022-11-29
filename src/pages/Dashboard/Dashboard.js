@@ -1,7 +1,7 @@
 import Header from "../../components/Header/Header";
 import {Link} from "react-router-dom";
 import {useEffect} from "react";
-import {validateJwt} from "../../utils/functions";
+import {hasRole, validateJwt} from "../../utils/functions";
 import "./Dashboard.css"
 function Dashboard(){
 
@@ -12,7 +12,8 @@ function Dashboard(){
         {
             "title": "CSIP Overview",
             "img": "/CSIP.png",
-            "path": "/csip"
+            "path": "/csip",
+            'role': 'admin'
         },
         {
             "title": "ISSLC Standards Dashboard",
@@ -22,7 +23,8 @@ function Dashboard(){
         {
             "title": "Users",
             "img": "/CSIP.png",
-            "path": "/users"
+            "path": "/users",
+            "role": "admin"
         }
     ]
     return (
@@ -30,17 +32,22 @@ function Dashboard(){
             <Header title={"Dashboard"} />
             <main className={"dashboard-container container"}>
                 {
-                    dashboardItems.map((item,index)=>(
-                        <div key={index} className={"dashboard-item"}>
-                            <Link to={item.path}>
-                            <img src={item.img}/>
+                    dashboardItems.map((item,index)=>{
+                        if(item.role && !hasRole(item.role)){
+                            return;
+                        }
+                        return (
+                            <div key={index} className={"dashboard-item"}>
+                                <Link to={item.path}>
+                                <img src={item.img}/>
 
-                                <h3>
-                                    {item.title}
-                                </h3>
-                            </Link>
-                        </div>
-                    ))
+                                    <h3>
+                                        {item.title}
+                                    </h3>
+                                </Link>
+                            </div>
+                    )
+                })
                 }
             </main>
 

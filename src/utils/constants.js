@@ -1,5 +1,6 @@
 const constants = {
-    jwtKey: "seattle-jwt"
+    jwtKey: "seattle-jwt",
+    roleKey: "role"
 }
 
 export default constants;

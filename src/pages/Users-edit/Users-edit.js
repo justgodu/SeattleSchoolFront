@@ -91,12 +91,13 @@ function UsersEdit(props){
     ]
     return (
         <>
-            <Header title={"ISSLC - " + user?.username}/>
+            <Header title={"User Management - " + (user?.username || "New")}/>
 
             <main className={"edit-container container"}>
                 <div className={"edit-form-info"}>
+                    <h3><Link to={"/"}>Dashboard</Link></h3>
                     <h3><Link to={"/users"}>Users</Link></h3>
-                    {updateStatus?.class && (<h4 className={updateStatus.class}>{updateStatus.text}</h4>)}
+                    <h3>User - {user?.username || "New"}</h3>
                 </div>
                 <form className={"edit-form"} onSubmit={(e) => {
                     onSubmit(e)

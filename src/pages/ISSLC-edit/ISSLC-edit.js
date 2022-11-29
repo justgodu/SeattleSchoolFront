@@ -205,6 +205,7 @@ function ISSLCEdit(props) {
 
             <main className={"edit-container container"}>
                 <div className={"edit-form-info"}>
+                    <h3><Link to={"/"}>Dashboard</Link></h3>
                     <h3><Link to={"/ISSLC"}>ISSLC</Link></h3>
                     <h3><Link to={"/ISSLC/" + props.match.params.schoolId}> {school?.name} </Link></h3>
                     <h3 className={""}>{schoolCell ?
@@ -274,10 +275,10 @@ function ISSLCEdit(props) {
                                     )
                                 ))
                             }
-                            {
-                                formType?.action_response?.readonly !== true &&
-                                <button type={"button"} onClick={onClickAddActionResponse}>Add Response</button>
-                            }
+                            {/*{*/}
+                            {/*    formType?.action_response?.readonly !== true &&*/}
+                            {/*    <button type={"button"} onClick={onClickAddActionResponse}>Add Response</button>*/}
+                            {/*}*/}
                         </div>
                     </div>
 
@@ -286,6 +287,7 @@ function ISSLCEdit(props) {
                             <div className={"flex-column"}>
                                 <h4 className={"label"}>Review:</h4>
                                 <textarea placeholder={"School review"} value={formParams.review || ""}
+                                          readOnly={formType?.review?.readonly}
                                           onChange={(e) => onChangeValue(e.target.value, "review")}></textarea>
                             </div>
                             <div className={"flex-column"}>
@@ -318,7 +320,8 @@ function ISSLCEdit(props) {
                                          className={"radio-button-container " + (button.key === formParams?.status ? "selected" : "")}>
                                         <div className={"radio-button"} style={{backgroundColor: button.bgcolor}}
                                              onClick={() => {
-                                                 onChangeValue(button.key, "status")
+                                                 if(!formType?.status?.readonly)
+                                                     onChangeValue(button.key, "status")
                                              }}>
                                             {button.title}
                                         </div>
@@ -342,3 +345,12 @@ function ISSLCEdit(props) {
 }
 
 export default ISSLCEdit;
+ISSLCEdit.prototype = {
+    props: {
+        match: {
+            params: {
+                schoolId: String
+            }
+        }
+    }
+}

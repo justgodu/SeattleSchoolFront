@@ -30,8 +30,14 @@ export async function tryAuthorization(username, password){
     console.log(response, "login")
     if(response.access_token){
         localStorage.setItem(constants.jwtKey, response.access_token);
+        localStorage.setItem(constants.roleKey, response.role);
         window.location = "/dashboard"
     }
+}
+
+export function hasRole(role){
+    let userRole = localStorage.getItem(constants.roleKey);
+    return role === userRole;
 }
 
 export async function getSchoolParam(schoolId, formType, columnId, rowId = ''){
