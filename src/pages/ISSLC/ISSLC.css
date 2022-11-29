@@ -1,0 +1,26 @@
+.page-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+}
+
+.page-content-wrapper > * {
+    margin-top: 20px;
+}
+
+.school-list-container > table {
+    width: 100%;
+}
+
+.schools-table-row {
+    text-align: left;
+}
+
+.table-header {
+    background-color: #006AA3;
+}
+
+.school-link:hover {
+    color: #3684ae;
+}

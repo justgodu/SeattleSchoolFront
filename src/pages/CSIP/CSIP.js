@@ -33,25 +33,25 @@ function CSIP(){
     const statusFilters = [
         {
             "title": "Exceed",
-            "bgcolor": "#00B0F0",
-            "txtcolor": "#000000",
+            "bgcolor": "#006AA3",
+            "txtcolor": "#FFFFFF",
             "key": "exceed"
         },
         {
             "title": "Meet",
             "bgcolor": "#00B050",
-            "txtcolor": "#000000",
+            "txtcolor": "#FFFFFF",
             "key": "meet"
         },
         {
             "title": "Partially Meet",
-            "bgcolor": "#FFFF00",
-            "txtcolor": "#44546A",
+            "bgcolor": "#DFD60D",
+            "txtcolor": "#FFFFFF",
             "key": "partially_meet"
         },
         {
             "title": "Underperform",
-            "bgcolor": "#FF0000",
+            "bgcolor": "#DB4D36",
             "txtcolor": "#ffffff",
             "key": "underperform"
         },
@@ -60,7 +60,7 @@ function CSIP(){
     return(
         <>
             <Header title={"Dashboard CSIP Overview"}/>
-            <main className={"container"}>
+            <main className={"container page-content-wrapper"}>
             <div className={"filters-container"}>
             <h4>Sort by</h4>
             {
@@ -99,7 +99,7 @@ function CSIP(){
 
                                                 if (param.goal_id && param.goal_id === col._id) {
                                                     Cell =
-                                                        <td key={col_ind} className={"cell " + param.status}>
+                                                        <td key={col_ind} className={"cell " + param.status + " schools-table-cell"}>
                                                             <Link to={`/csip/${school._id}/${col._id}`}>
                                                                 {param.assessment_values.join(" & ")}
                                                             </Link>
@@ -110,7 +110,7 @@ function CSIP(){
                                             });
 
                                             if(!Cell){
-                                                Cell = <td key={col_ind} className={"cell empty"}>
+                                                Cell = <td key={col_ind} className={"cell empty schools-table-cell"}>
                                                     <Link to={`/csip/${school._id}/${col._id}`}>
                                                         {"-"}
                                                     </Link>

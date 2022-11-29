@@ -1,0 +1,21 @@
+
+.create-button-wrapper {
+    padding: 20px 0px;
+}
+
+.cellrow-header-1 {
+    border: 1px solid black;
+}
+
+.users-list-table {
+    margin-bottom: 30px;
+}
+
+.user-management-wrapper {
+    /* max-width: none; */
+    width: 90%;
+}
+
+.users-list-table > tbody > tr > th {
+    padding: 10px;
+}

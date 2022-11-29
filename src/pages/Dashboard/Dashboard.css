@@ -2,11 +2,17 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    margin-top: 60px;
 }
 .dashboard-item{
     padding: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: rgba(82, 82, 82, 0.2) 0px 2px 8px 0px;
 }
 .dashboard-item img{
     max-width: 200px;
     width: 100%;
+    margin-bottom: 20px;
 }

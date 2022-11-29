@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header";
 import {Link} from "react-router-dom";
 import {useState, useEffect} from "react";
 import {getUsers} from "../../utils/functions";
+import "./users.css";
 
 function Users(props){
 
@@ -47,7 +48,7 @@ function Users(props){
     return(
         <>
             <Header title={"User Management"}/>
-            <main className={"container"}>
+            <main className={"container user-management-wrapper"}>
 
                 <div className={"edit-form-info"}>
                     <h3><Link to={"/"}>Dashboard</Link></h3>
@@ -56,10 +57,10 @@ function Users(props){
 
                 <div className={"grid-container users"}>
 
-                    <div className={"filters-container"}>
+                    <div className={"filters-container create-button-wrapper"}>
                         <Link style={{marginLeft: 'auto'}} className={"button-save"} to={"/users-new"}>Create new</Link>
                     </div>
-                    <table className={"grid-table center"} cellSpacing={0}>
+                    <table className={"grid-table center users-list-table"} cellSpacing={0}>
                         <tbody>
                         <tr>
                             {

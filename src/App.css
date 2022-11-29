@@ -11,7 +11,7 @@
     display: flex;
     height: 130px;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     gap: 30px;
     color: black;
 }
@@ -20,18 +20,18 @@
 }
 
 .cell.exceed{
-    background-color: #00B0F0;
+    background-color: #1e85bc;
 }
 .cell.meet{
     background-color: #00B050;
 }
 
 .cell.partially_meet{
-    background-color: #FFFF00;
+    background-color: #e5da16;
 }
 
 .cell.underperform{
-    background-color: #FF0000;
+    background-color: #DB4D36;
 }
 
 .container{
@@ -122,3 +122,24 @@
 .grid-container{
     overflow-x: auto;
 }
+
+/* Custom Scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #006AA3; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #094769; 
+  }
