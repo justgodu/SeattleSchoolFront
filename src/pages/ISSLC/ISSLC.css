@@ -24,3 +24,8 @@
 .school-link:hover {
     color: #3684ae;
 }
+
+.single-school-table {
+    padding: 0px 30px;
+    margin-bottom: 30px;
+}

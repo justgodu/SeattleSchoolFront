@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import {Link, useHistory} from "react-router-dom";
 import {useState,useEffect} from "react";
 
-import {getSchools, getUser, updateUser} from "../../utils/functions";
+import {getSchools, getUser, updateUser, deleteUser} from "../../utils/functions";
 
 function UsersEdit(props){
 
@@ -33,6 +33,17 @@ function UsersEdit(props){
         getAndSetUser();
 
     }, []);
+
+
+    const userDelete = async() => {
+        let deleteUserResult = await deleteUser('/delete', props.match.params.userId);
+
+        if (!deleteUserResult) {
+            console.log("Can't delete user");
+        }
+
+        history.goBack();
+    }
 
 
     const onChangeValue = (value, key, index = null) => {
@@ -92,7 +103,6 @@ function UsersEdit(props){
     return (
         <>
             <Header title={"User Management - " + (user?.username || "New")}/>
-
             <main className={"edit-container container"}>
                 <div className={"edit-form-info"}>
                     <h3><Link to={"/"}>Dashboard</Link></h3>
@@ -102,7 +112,6 @@ function UsersEdit(props){
                 <form className={"edit-form"} onSubmit={(e) => {
                     onSubmit(e)
                 }}>
-
                     <div className={"flex-2 form-section"}>
                         <div className={"flex-column"}>
                             <h4 className={"label"}>Username:</h4>
@@ -113,8 +122,6 @@ function UsersEdit(props){
                             <input type={"text"} value={user?.email || ""} onChange={(e) => onChangeValue(e.target.value, "email")} required={true}/>
                         </div>
                     </div>
-
-
                     <div className={"flex-2 form-section"}>
                         <div className={"flex-column"}>
                             <h4 className={"label"}>First Name</h4>
@@ -125,9 +132,6 @@ function UsersEdit(props){
                             <input type={"text"} value={user?.last_name || ""} onChange={(e) => onChangeValue(e.target.value, "last_name")} required={true}/>
                         </div>
                     </div>
-
-
-
                     <div className={"flex-2 form-section"}>
                         <div className={"flex-column"}>
                             <h4 className={"label"}>Role:</h4>
@@ -154,15 +158,11 @@ function UsersEdit(props){
                             )
                         }
                     </div>
-
                     <div className={"form-section"}>
                         <button type={"submit"}>Save</button>
+                        <button onClick={() => userDelete()} className={"delete-user-btn"}>Delete User</button>
                     </div>
-
-
                 </form>
-
-
             </main>
         </>
     )

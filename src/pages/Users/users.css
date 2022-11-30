@@ -19,3 +19,10 @@
 .users-list-table > tbody > tr > th {
     padding: 10px;
 }
+
+.delete-user-btn {
+    margin-left: 30px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #DB4D36 !important;
+}

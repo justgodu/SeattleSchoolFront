@@ -23,6 +23,7 @@ export async function getGoal(id){
     const api = new SeattleApi();
     return api.get(endpoints.school_goal + "/" + id);
 }
+
 export async function tryAuthorization(username, password){
     const api = new SeattleApi();
     let response = await api.post(endpoints.auth + "/login", {username, password});
@@ -88,4 +89,10 @@ export async function updateUser(userId, userData){
 export async function createUser(userData){
     let api = new SeattleApi();
     return api.post(endpoints.user, userData);
+}
+
+export async function deleteUser(path,userId) {
+    let api = new SeattleApi();
+    let endpoint = endpoints.user + path;
+    return api.post(endpoint, {_id :userId});
 }

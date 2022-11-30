@@ -13,25 +13,25 @@ function ISSLCSchool(props){
     const statusButtons = [
         {
             "title": "Exceed",
-            "bgcolor": "#00B0F0",
-            "txtcolor": "#000000",
+            "bgcolor": "#006AA3",
+            "txtcolor": "#FFFFFF",
             "key": "exceed"
         },
         {
             "title": "Meet",
             "bgcolor": "#00B050",
-            "txtcolor": "#000000",
+            "txtcolor": "#FFFFFF",
             "key": "meet"
         },
         {
             "title": "Partially Meet",
-            "bgcolor": "#FFFF00",
-            "txtcolor": "#44546A",
+            "bgcolor": "#DFD60D",
+            "txtcolor": "#FFFFFF",
             "key": "partially_meet"
         },
         {
             "title": "Underperform",
-            "bgcolor": "#FF0000",
+            "bgcolor": "#DB4D36",
             "txtcolor": "#ffffff",
             "key": "underperform"
         },
@@ -100,7 +100,7 @@ function ISSLCSchool(props){
                         ))
                     }
                 </div>
-                <div className={"grid-container"}>
+                <div className={"grid-container single-school-table"}>
 
                     <table className={"grid-table center"} cellSpacing={0}>
                         <tbody>
