@@ -76,6 +76,21 @@ function ISSLCSchool(props){
         setRows(rows);
         setSortBy(sortKey);
     }
+
+    const displayCellText = (param) => {
+
+        let maxLength = 30;
+
+        if (param.data?.review) {
+            if (param.data?.review.length < maxLength) {
+                return param.data?.review;
+            }
+            return param.data?.review.substring(0, maxLength) + "...";
+        }
+
+        return "";
+    }
+
     return(
         <>
             <Header title={"ISSLC - " + school?.name}/>
@@ -128,8 +143,9 @@ function ISSLCSchool(props){
                                                             Cell =
                                                                 <td key={col_ind} className={"cell " + param.data?.status}>
                                                                     <Link to={`/isslc-edit/${school._id}/${col._id}/${row._id}`}>
-                                                                        <span>{param.data?.review ? param.data?.review.substring(0, 20) + "..." : ''}</span>
-
+                                                                        <span>
+                                                                            { displayCellText(param) }
+                                                                        </span>
                                                                         <span style={{marginTop:"auto"}}>{param.data?.something.join(", ")}</span>
                                                                     </Link>
                                                                 </td>
