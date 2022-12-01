@@ -130,7 +130,7 @@ function ISSLCSchool(props){
                                                                     <Link to={`/isslc-edit/${school._id}/${col._id}/${row._id}`}>
                                                                         <span>{param.data?.review ? param.data?.review.substring(0, 20) + "..." : ''}</span>
 
-                                                                        <span>{param.data.something.join(", ")}</span>
+                                                                        <span style={{marginTop:"auto"}}>{param.data?.something.join(", ")}</span>
                                                                     </Link>
                                                                 </td>
 

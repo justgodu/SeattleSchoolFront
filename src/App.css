@@ -1,6 +1,6 @@
 .cell{
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid rgb(0,0,0,0.2);
     font-weight: bold;
     height: 130px;
     width: 233px;
@@ -65,20 +65,24 @@
     color: white;
     padding: 5px 20px;
     min-width: 100px;
+    border-right: 1px solid rgb(0,0,0,0.2);
 }
 
 .row-header-0{
     background-color: #CFD5EA;
     padding: 20px;
+    border-bottom: 1px solid rgb(0,0,0,0.2);
 }
 .row-header-1{
     background-color: #E9EBF5;
     padding: 20px;
+    border-bottom: 1px solid rgb(0,0,0,0.2);
 }
 .table-header{
     background-color: #7F7F7F;
     color: white;
     padding: 20px;
+    border-right: 1px solid rgb(0,0,0,0.2);
 }
 .section-container{
     padding: 20px;

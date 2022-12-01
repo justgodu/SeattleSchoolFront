@@ -26,11 +26,11 @@ function Users(props){
         },
         {
             'key': 'first_name',
-            'name': 'F name'
+            'name': 'First Name'
         },
         {
             'key': 'last_name',
-            'name': 'L name'
+            'name': 'Last Name'
         },
         {
             'key': 'email',
