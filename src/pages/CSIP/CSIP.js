@@ -60,7 +60,7 @@ function CSIP(){
     return(
         <>
             <Header title={"Dashboard CSIP Overview"}/>
-            <main className={"container page-content-wrapper"}>
+            <main className={"container schools-table-wrapper"}>
             <div className={"filters-container"}>
             <h4>Sort by</h4>
             {

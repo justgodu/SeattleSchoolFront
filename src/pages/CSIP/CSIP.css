@@ -1,9 +1,15 @@
-.page-content-wrapper {
+.schools-table-wrapper {
     margin-top: 20px;
-    padding: 0 30px;
+    padding: 30px 30px;
+    max-width: 90%;
+
 }
 
 .schools-table-cell {
     border: none;
     vertical-align: middle !important;
+}
+
+::-webkit-scrollbar {
+    height: 15px;
 }
