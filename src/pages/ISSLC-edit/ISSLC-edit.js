@@ -16,8 +16,45 @@ function ISSLCEdit(props) {
     const [updateStatus, setUpdateStatus] = useState();
 
     const somethingOptions = [
-        "S", "P", "T", "PA", "D", "PAR", "B"
+        "S", "P", "T", "PA", "D", "PAR", "B", "C", "SB", "CuSUP", "SUP"  
     ];
+
+    const legendObject = {
+        title: "Matrix Key",
+        P: "Principal",
+        T: "Teachers",
+        PA: "Para Educators",
+        D: "Distinct Employees",
+        PAR: "Parents",
+        SUP: "Supervision",
+        CuSUP: "Program Supervision",
+        SB: "School Board",
+        S: "Superintendent",
+        C: "Coaches"
+    }
+
+    const displayLegend = (legendObject) => {
+
+        let elementsToReturn = [];
+
+        for (let item in legendObject) {
+
+            if (item === "title") {
+                continue;
+            }
+            
+            let element = 
+                <span className={"legend-item-wrapper"}>
+                    <span className={"legend-item-label"}>{`${item} = `}</span>
+                    <span className={"legend-item-description"}>{`${legendObject[item]}`}</span>
+                </span>
+            
+            elementsToReturn.push(element);
+        }
+
+        console.log(elementsToReturn);
+        return elementsToReturn;
+    }
 
     const statusButtons = [
         {
@@ -307,6 +344,10 @@ function ISSLCEdit(props) {
                                         )
                                     }
                                 </div>
+                                <section className={"table-legend-section"}>
+                                    <span className={"legend-title"}>{legendObject.title}</span>
+                                    <span className={"legend-items"}>{displayLegend(legendObject)}</span>
+                                </section>
                             </div>
                         </div>
                     </div>

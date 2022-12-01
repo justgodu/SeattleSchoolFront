@@ -37,6 +37,20 @@ function ISSLCSchool(props){
         },
     ];
 
+    const legendObject = {
+        title: "Matrix Key",
+        P: "Principal",
+        T: "Teachers",
+        PA: "Para Educators",
+        D: "Distinct Employees",
+        PAR: "Parents",
+        SUP: "Supervision",
+        CuSUP: "Program Supervision",
+        SB: "School Board",
+        S: "Superintendent",
+        C: "Coaches"
+    }
+
     useEffect(()=>{
 
         const getAndSetSchool = async ()=>{
@@ -91,6 +105,29 @@ function ISSLCSchool(props){
         return "";
     }
 
+    const displayLegend = (legendObject) => {
+
+        let elementsToReturn = [];
+
+        for (let item in legendObject) {
+
+            if (item === "title") {
+                continue;
+            }
+            
+            let element = 
+                <span className={"legend-item-wrapper"}>
+                    <span className={"legend-item-label"}>{`${item} = `}</span>
+                    <span className={"legend-item-description"}>{`${legendObject[item]}`}</span>
+                </span>
+            
+            elementsToReturn.push(element);
+        }
+
+        console.log(elementsToReturn);
+        return elementsToReturn;
+    }
+
     return(
         <>
             <Header title={"ISSLC - " + school?.name}/>
@@ -137,9 +174,9 @@ function ISSLCSchool(props){
                                                 columns.map((col, col_ind) => {
                                                     let Cell;
                                                     school.parameters.forEach((param) => {
-
                                                         if (param.column_id && param.row_id
-                                                            && param.column_id === col._id && param.row_id === row._id) {
+                                                            && param.column_id === col._id 
+                                                            && param.row_id === row._id) {
                                                             Cell =
                                                                 <td key={col_ind} className={"cell " + param.data?.status}>
                                                                     <Link to={`/isslc-edit/${school._id}/${col._id}/${row._id}`}>
@@ -149,9 +186,7 @@ function ISSLCSchool(props){
                                                                         <span style={{marginTop:"auto"}}>{param.data?.something.join(", ")}</span>
                                                                     </Link>
                                                                 </td>
-
                                                         }
-
                                                     });
 
                                                     if(!Cell){
@@ -173,6 +208,10 @@ function ISSLCSchool(props){
                         }
                         </tbody>
                     </table>
+                    <section className={"table-legend-section"}>
+                        <span className={"legend-title"}>{`${legendObject.title}: `}</span>
+                        <span className={"legend-items"}>{displayLegend(legendObject)}</span>
+                    </section>
                 </div>
 
             </main>
