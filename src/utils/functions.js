@@ -4,6 +4,15 @@ import SeattleApi from "./api";
 import constants from "./constants";
 
 
+export async function getUsername (){
+    const api = new SeattleApi();
+    return api.get(endpoints.user + "/getUsername");
+}
+
+export function logout(){
+    localStorage.clear()
+    window.location = "/login";
+}
 export async function getSchool(id){
     const api = new SeattleApi();
     return api.get(endpoints.school + "/" + id);

@@ -20,7 +20,7 @@ function ISSLCEdit(props) {
     ];
 
     const legendObject = {
-        title: "Matrix Key",
+        title: "",
         P: "Principal",
         T: "Teachers",
         PA: "Para Educators",
@@ -52,7 +52,6 @@ function ISSLCEdit(props) {
             elementsToReturn.push(element);
         }
 
-        console.log(elementsToReturn);
         return elementsToReturn;
     }
 
@@ -232,11 +231,8 @@ function ISSLCEdit(props) {
         setTimeout(() => {
             setUpdateStatus()
         }, 4000)
-        console.log(response);
     }
-
-    console.log(updateStatus)
-    return (
+        return (
         <>
             <Header title={"ISSLC - " + school?.name}/>
 
@@ -257,9 +253,20 @@ function ISSLCEdit(props) {
                     onSubmit(e)
                 }}>
 
+                    <div className={"form-section"}>
+                        <div className={"flex-2"}>
+                            <div className={"flex-column" + (formType?.matrix_description?.readonly ? ' readonly' : '')}>
+                                <h4 className={"label"}>{formType?.matrix_description?.fieldIndex} Matrix Description:</h4>
+                                <textarea placeholder={"Matrix Description"} value={formParams.matrix_description || ""}
+                                          readOnly={formType?.matrix_description?.readonly}
+                                          onChange={(e) => onChangeValue(e.target.value, "matrix_description")}></textarea>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className={"flex-2 form-section"}>
-                        <div className={"flex-column"}>
-                            <h4 className={"label"}>Action plan:</h4>
+                        <div className={"flex-column " + (formType?.action_plan?.readonly ? 'readonly' : '')}>
+                            <h4 className={"label"}>{formType?.action_plan?.fieldIndex} Action plan:</h4>
                             {
                                 formParams &&
                                 formParams.action_plan && formParams.action_plan
@@ -280,8 +287,8 @@ function ISSLCEdit(props) {
                                 <button type={"button"} onClick={onClickAddActionPlan}>Add Action Plan</button>
                             }
                         </div>
-                        <div className={"flex-column"}>
-                            <h4 className={"label"}>Action response:</h4>
+                        <div className={"flex-column " + (formType?.action_response?.readonly ? 'readonly' : '')}>
+                            <h4 className={"label"}>{formType?.action_response?.fieldIndex} Action response:</h4>
                             {
                                 formParams
                                 && formParams.action_plan
@@ -319,16 +326,19 @@ function ISSLCEdit(props) {
                         </div>
                     </div>
 
+
                     <div className={"form-section"}>
-                        <div className={"flex-2 flex-down"}>
-                            <div className={"flex-column"}>
-                                <h4 className={"label"}>Review:</h4>
+                        <div className={"flex-2"}>
+                            <div className={"flex-column " + (formType?.review?.readonly ? 'readonly' : '')}>
+                                <h4 className={"label"}>{formType?.review?.fieldIndex} Review:</h4>
                                 <textarea placeholder={"School review"} value={formParams.review || ""}
                                           readOnly={formType?.review?.readonly}
                                           onChange={(e) => onChangeValue(e.target.value, "review")}></textarea>
                             </div>
-                            <div className={"flex-column"}>
+                            <div className={"flex-column" + (formType?.something?.readonly ? ' readonly' : '')}>
+                                <h4 className={"label"}>{formType?.something?.fieldIndex} Impact Area:</h4>
                                 <div className={"form-section d-flex select-container"}>
+
                                     {
                                         somethingOptions.map((val, index) => {
                                                 return (
@@ -352,8 +362,8 @@ function ISSLCEdit(props) {
                         </div>
                     </div>
 
-                    <div className={"form-section"}>
-                        <h4 className={"label"}>Status:</h4>
+                    <div className={"form-section" + (formType?.status?.readonly ? ' readonly' : '')}>
+                        <h4 className={"label"}>{formType?.status?.fieldIndex} Assessment:</h4>
                         <div className={"buttons-container "}>
                             {
                                 statusButtons.map((button, index) => (

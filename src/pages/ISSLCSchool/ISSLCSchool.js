@@ -93,13 +93,13 @@ function ISSLCSchool(props){
 
     const displayCellText = (param) => {
 
-        let maxLength = 30;
+        let maxLength = 120;
 
-        if (param.data?.review) {
-            if (param.data?.review.length < maxLength) {
-                return param.data?.review;
+        if (param.data?.matrix_description) {
+            if (param.data?.matrix_description.length < maxLength) {
+                return param.data?.matrix_description;
             }
-            return param.data?.review.substring(0, maxLength) + "...";
+            return param.data?.matrix_description.substring(0, maxLength) + "...";
         }
 
         return "";
@@ -183,7 +183,7 @@ function ISSLCSchool(props){
                                                                         <span>
                                                                             { displayCellText(param) }
                                                                         </span>
-                                                                        <span style={{marginTop:"auto"}}>{param.data?.something.join(", ")}</span>
+                                                                        <span style={{marginTop:"auto"}}>{param.data?.something?.join(", ")}</span>
                                                                     </Link>
                                                                 </td>
                                                         }

@@ -46,3 +46,23 @@
     bottom: 0;
     z-index: 2;
 }
+
+.logout{
+    align-items: center;
+    gap: 10px;
+}
+.logout h4{
+    margin-bottom: 10px;
+}
+.logout button{
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #81d7ff;
+    outline: none;
+    border: unset;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    font-family: 'Inter', sans-serif;
+}

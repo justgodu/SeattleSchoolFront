@@ -243,3 +243,7 @@
 .legend-title {
     margin-bottom: 5px;
 }
+
+.readonly{
+    opacity: 60%;
+}
