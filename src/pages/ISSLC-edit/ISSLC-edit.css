@@ -236,14 +236,11 @@
     width: 25px;
 }
 
-.table-legend-section{
-    margin: 10px;
-}
-
 .legend-title {
     margin-bottom: 5px;
 }
 
 .readonly{
     opacity: 60%;
+    pointer-events: none;
 }

@@ -2,14 +2,15 @@
     text-align: center;
     border: 1px solid rgb(0,0,0,0.2);
     font-weight: bold;
-    height: 130px;
+    height: 100px;
     width: 233px;
+    padding: 5px;
 }
 
 .cell a{
     /*padding-top: 20px;*/
     display: flex;
-    height: 130px;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     gap: 30px;

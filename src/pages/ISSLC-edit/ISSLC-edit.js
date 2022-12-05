@@ -20,7 +20,7 @@ function ISSLCEdit(props) {
     ];
 
     const legendObject = {
-        title: "",
+        title: "Matrix Key",
         P: "Principal",
         T: "Teachers",
         PA: "Para Educators",

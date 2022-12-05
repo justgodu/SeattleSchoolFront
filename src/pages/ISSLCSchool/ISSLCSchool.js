@@ -93,7 +93,7 @@ function ISSLCSchool(props){
 
     const displayCellText = (param) => {
 
-        let maxLength = 120;
+        let maxLength = 50;
 
         if (param.data?.matrix_description) {
             if (param.data?.matrix_description.length < maxLength) {
