@@ -330,7 +330,7 @@ function ISSLCEdit(props) {
                     <div className={"form-section"}>
                         <div className={"flex-2"}>
                             <div className={"flex-column " + (formType?.review?.readonly ? 'readonly' : '')}>
-                                <h4 className={"label"}>{formType?.review?.fieldIndex} Review:</h4>
+                                <h4 className={"label"}>{formType?.review?.fieldIndex} Assessment Review:</h4>
                                 <textarea placeholder={"School review"} value={formParams.review || ""}
                                           readOnly={formType?.review?.readonly}
                                           onChange={(e) => onChangeValue(e.target.value, "review")}></textarea>
@@ -363,7 +363,7 @@ function ISSLCEdit(props) {
                     </div>
 
                     <div className={"form-section" + (formType?.status?.readonly ? ' readonly' : '')}>
-                        <h4 className={"label"}>{formType?.status?.fieldIndex} Assessment:</h4>
+                        <h4 className={"label"}>{formType?.status?.fieldIndex} Assessment Status:</h4>
                         <div className={"buttons-container "}>
                             {
                                 statusButtons.map((button, index) => (

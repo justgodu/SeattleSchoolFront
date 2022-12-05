@@ -93,7 +93,7 @@ function ISSLCSchool(props){
 
     const displayCellText = (param) => {
 
-        let maxLength = 50;
+        let maxLength = 130;
 
         if (param.data?.matrix_description) {
             if (param.data?.matrix_description.length < maxLength) {
@@ -183,7 +183,7 @@ function ISSLCSchool(props){
                                                                         <span>
                                                                             { displayCellText(param) }
                                                                         </span>
-                                                                        <span style={{marginTop:"auto"}}>{param.data?.something?.join(", ")}</span>
+                                                                        <span style={{marginTop:"auto", color: '#fff'}}>{param.data?.something?.join(", ")}</span>
                                                                     </Link>
                                                                 </td>
                                                         }

@@ -119,6 +119,7 @@ export default class SeattleApi{
     }
 
     unAuthorized(){
+        localStorage.clear()
         window.location = "/login";
     }
 }
